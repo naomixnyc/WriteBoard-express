@@ -1,4 +1,4 @@
-# Article Bulletin Application
+# Backend for Writeboard Application
 This is a simple article bulletin board application using Express.js, MongoDB, Mongoose and EJS. It allows authors to post articles, and users can comment on them. Authors can create, edit, delete articles and comments, and view them on the website.
 
 **Please note:** This project was initially started as a media bookmark application, where I was the sole user and owner. Currently, there are no restrictions on deleting or modifying articles, although the schema includes certain requirements for other operations.
