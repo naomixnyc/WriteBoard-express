@@ -1,46 +1,13 @@
-# Backend for Writeboard Application
-This is a simple article bulletin board application using Express.js, MongoDB, Mongoose and EJS. It allows authors to post articles, and users can comment on them. Authors can create, edit, delete articles and comments, and view them on the website.
+# Backend for Article Sharing Platform
 
-**Please note:** This project was initially started as a media bookmark application, where I was the sole user and owner. Currently, there are no restrictions on deleting or modifying articles, although the schema includes certain requirements for other operations.
+A full-stack MERN (MongoDB, Express.js, React, Node.js) web application that allows users to share and explore articles on any topic.
 
-
-## Table of Contents
-
-- [Features](#features)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [API Endpoints](#api-endpoints)
+Users can register, log in, create, edit, and delete their own articles, as well as comment on any article. The application uses `bcrypt` to securely hash passwords and `jsonwebtoken` for secure user authentication via JSON Web Tokens (JWT).
 
 
-  ## Features
+> ⚠️ **Note:** This backend is part of a full-stack project.  
+> For the full technology stack, UI/UX considerations, and complete project documentation, please visit the [frontend repository](https://github.com/naomixnyc/Writeboard-react).
 
-- **Article Management**: 
-  - View, create, edit, and delete articles. 
-  - Articles include title, description, content, and a unique slug.
-  - Articles are timestamped and linked to an author.
-  - Articles can have multiple comments.
-
-- **Commenting System**: 
-  - Users can post comments on articles.
-- **Author Management**: 
-  - Articles are linked to authors.
-
-  ## Technologies
-
-- **Backend**: Node.js, Express
-- **Database**: MongoDB, Mongoose
-- **View Engine**: EJS, Slugify
-- **Middleware**: Method Override (and DOMJS) for PUT and DELETE requests over HTML
-- **Environment Variables**: dotenv
-
-  ## Installation
-
-1. Clone the repository
-2. Install dependencies (npm install)
-3. Set up your .env file with your MongoDB connection URI and run the `seed.js` script to create three collections: 13 Articles, 13 Authors, 13 Comments.
-```bash
-   node seed.js
-```
 
   ## API Endpoints
 
@@ -80,7 +47,7 @@ This is a simple article bulletin board application using Express.js, MongoDB, M
   ```
 
 - **GET** `/articles/new`
-  Display the form to create a new article. (This form dynamically loads available authors to choose from.)
+  Display the form to create a new article.
 
 
 - **POST** `/articles/authors`
@@ -93,7 +60,7 @@ This is a simple article bulletin board application using Express.js, MongoDB, M
   ```
 
 - **POST** `/articles/:id/comments`  
-  Adds a comment to the specified article. The author field (referenced by their _id) is optional.
+  Adds a comment to the specified article. The author field is referenced by their _id)
 
   **Request Body:**
   ```json
@@ -117,6 +84,4 @@ This is a simple article bulletin board application using Express.js, MongoDB, M
   ```
 
 - **DELETE** `/articles/:id`  
-  Deletes an article by its _id. This action should be restricted to admins only. 
-
-#### **Notes:** `slug` is automatically generated from the title when an article is created. 
+  Deletes an article by its _id. 
