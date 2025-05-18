@@ -11,15 +11,38 @@ Users can register, log in, create, edit, and delete their own articles, as well
 
   ## API Endpoints
 
+- **POST** `/articles/login`  
+  Log in a user with email and password.
+
+  **Request Body:**
+  ```json
+  {
+    "email": "Author's email",
+    "password": "password"
+  }
+  ```
+
+- **POST** `/articles/user`  
+  Sign up a new user.
+
+  **Request Body:**
+  ```json
+  {
+    "name": "Author Name"
+    "email": "Author's email",
+    "password": "password"
+  }
+  ```
+
 - **GET** `/articles`  
-  Display all articles, sorted by most recent ({ createdAt: -1 }).
+  Display all articles, sorted by most recent ({ createdAt: -1 }).  
   Each article includes its author and associated comments. 
 
-- **GET** `/` 
-  Displays article previews via a form. The "Read More" button is functional.
+- ~~**GET** `/`~~  
+  ~~Displays article previews via a form. The "Read More" button is functional.~~
 
 - **GET** `/articles/authors`  
-  Display all authors currently registered.   
+  Display all authors (= users) currently registered.   
 
 - **GET** `/articles/comments`  
   Display all comments submitted.  
@@ -31,8 +54,6 @@ Users can register, log in, create, edit, and delete their own articles, as well
 - **GET** `/articles/:id`  
   View a single article by its MongoDB _id (ObjectId), including its author and comments. 
 
-
-
 - **POST** `/articles`  
   Creates a new article. The author must already be registered and referenced by their _id.
 
@@ -42,16 +63,18 @@ Users can register, log in, create, edit, and delete their own articles, as well
     "title": "Article Title",
     "description": "Article Description",
     "content": "Full article content",
-    "author": "Author's ObjectId" //"6811045c50b8186c1d7e5a64"
+    "author": "Author's ObjectId" //"6826756d90584c7acd0a260d"  
   }
   ```
 
-- **GET** `/articles/new`
-  Display the form to create a new article.
+- ~~**GET** `/articles/new`~~  
+  ~~Display the form to create a new article.~~
 
 
-- **POST** `/articles/authors`
-  Add a new author.
+- **POST** `/articles/authors`  
+  Add a new author (= user).  
+
+  **Request Body:**  
   ```json
   {
     "name": "Author Name",
